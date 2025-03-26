@@ -6,5 +6,6 @@ const blogMidlewere = require("../middleweres/blogImageMidlewere")
 router.post("/create", adminMidlewere, blogMidlewere.array("images", 2),  blogController.Create)
 router.delete("/delete/:id", adminMidlewere, blogController.Delete)
 router.get("/get-all", adminMidlewere, blogController.GetAll)
+router.delete("/all-del", adminMidlewere, blogController.DeleteAll)
 
 module.exports = router 

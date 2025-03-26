@@ -97,6 +97,30 @@ class BlogController {
             res.status(400).json({ok: false, message: error.message})
         }
     }
+
+    async DeleteAll(req, res){
+        try {
+            const blogs = await blogModel.find() 
+            const arrayEl = []
+            for (let blog of blogs) {
+                for (let filename of blog.image) {
+                    const filePath = path.join(__dirname, "../blogImages", filename);
+                    if (fs.existsSync(filePath)) {
+                        fs.unlinkSync(filePath); // Faylni o‘chirish
+                    }
+                }
+                arrayEl.push(blog._id);
+            }
+            
+            for (let id of arrayEl) {
+                await blogModel.findByIdAndDelete(id);
+            }
+
+            res.json({ok: true, message: "Barcha blog o'chirildi!"})
+        } catch (error) {
+            res.status(400).json({ok: false, message: error.message})
+        }
+    }
 }
 
 module.exports = new BlogController()
