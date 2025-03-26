@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import "tailwindcss";
+
+html{
+    width: 100vw;
+    background-color: #e7d40533;
+    overflow-x: hidden;
+}
+
+body.blockBody{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+
+::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(2, 2, 29);
+}
+
+.Itim{
+    font-family: Itim;
+}
