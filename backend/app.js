@@ -6,6 +6,12 @@ const rateLimit = require("express-rate-limit")
 const blogRouter = require("./routers/blogRouter")
 const announcementRoute = require("./routers/announcementRoute")
 
+// So'rov tezligini cheklash (Rate Limiting)
+const limiter = rateLimit({
+    windowMs: 1 * 1000, // 1 daqiqa
+    max: 80, // Har bir IP uchun maksimal 100 ta so'rov
+    message: "Nosozlik yuz berdi! Iltimos keyinroq urinib ko'ring!"
+});
 
 const app = express()
 app.use(limiter)
@@ -14,12 +20,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 
-// So'rov tezligini cheklash (Rate Limiting)
-const limiter = rateLimit({
-    windowMs: 1 * 1000, // 1 daqiqa
-    max: 80, // Har bir IP uchun maksimal 100 ta so'rov
-    message: "Nosozlik yuz berdi! Iltimos keyinroq urinib ko'ring!"
-});
 
 // Midleweres
 app.use("/api/blog", blogRouter)
