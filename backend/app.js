@@ -23,6 +23,7 @@ const limiter = rateLimit({
 // Midleweres
 app.use("/api/blog", blogRouter)
 app.use("/api/announcement", announcementRoute)
+app.use("/api/blog-images", express.static("blogImages"))
 app.use(limiter)
 
 const startApp = async () => {

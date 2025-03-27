@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import image1 from '../../assets/home1.jpg'
 import { toast } from "react-toastify"
@@ -8,15 +8,16 @@ import SideBar from '../sideBar/sideBar'
 import moment from "moment/moment";
 
 const Blogs = () => {
+  const [blogs, setBlogs] = useState([])
   const dispatch = useDispatch()
-  const blogs = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
   useEffect(() => {
     const getInfo = async () => {
-      // dispatch(showLoader())
+      dispatch(showLoader())
     try {
-        const response = await Myaxios.get(`/api/site/get-one`)
+        const response = await Myaxios.get(`/api/blog/get-all`)
         if(response.data.ok){
-          dispatch(setInfo(response.data.data))
+          dispatch(setBlogs(response.data.data))
         }else{
           toast.error(response.data.message)
         }
@@ -33,21 +34,9 @@ const Blogs = () => {
           {blogs.map(item => (
             <div key={item.title} className="px-2 py-6 w-full border-b border-gray-300">
               <div className="h-[400px] w-full flex items-center gap-2 justify-center">
-                {item % 2 === 0 && item !== 4 ? (
-                  <>
-                    <img src={image1} alt="fs" className={`h-full border border-gray-500 ${item % 2 === 0 ? "w-1/2" : "w-full"}`} />
-                    <img src={image1} alt="fs" className={`h-full border border-gray-500 ${item % 2 === 0 ? "w-1/2" : "w-full"}`} />
-                  </>
-                ) : (
-                  <>
-                    {item === 4 ? (
-                      <iframe width={`100%`} height="100%" src="https://www.youtube.com/embed/fqoUwGOATXg?si=Dm6G0-br5kV8fB80"></iframe>
-                    ) : (
-                      <img src={image1} alt="fs" className={`h-full border border-gray-500 ${item % 2 === 0 ? "w-1/2" : "w-full"}`} />
-                    )}
-                  </>
-                  )}
-
+                {item?.images?.map(image => (
+                  <img src={`https://matbout-xizmati.onrender.com/${image}`} alt={image} />
+                ))}
               </div>
 
               <div className="py-1">

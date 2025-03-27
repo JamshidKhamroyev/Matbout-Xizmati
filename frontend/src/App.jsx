@@ -6,35 +6,14 @@ import Navbar from './component/navbar/navbar'
 import Footer from './component/footer/footer'
 import About from './component/about/about'
 import NotPage from './component/notPage/notPage'
-import { useEffect } from 'react'
-import { Myaxios } from './apikeys'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import {showLoader, hideLoader} from './reducers/loader'
 import Load from './component/loader/load'
 import Location from './component/location/location'
 import Owner from './component/owner/owner'
 import Announcement from './component/announcement/announcement'
+import { useSelector } from 'react-redux'
 
 const App = () => {
   const {load} = useSelector(state => state.load)
-  const dispatch = useDispatch()
-  
-  useEffect(() => {
-    const getInfo = async () => {
-      dispatch(showLoader())
-      try {
-          const response = await Myaxios.get(`/api/site/get-one`)
-          if(!response.data.ok){
-            toast.error(response.data.message)
-          }
-      } catch (error) {
-        console.log(error.message); 
-      }
-    dispatch(hideLoader())
-  }
-  getInfo()
-  },[])
     return (
       <>
         <BrowserRouter>
