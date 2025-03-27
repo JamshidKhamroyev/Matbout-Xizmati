@@ -8,6 +8,7 @@ const announcementRoute = require("./routers/announcementRoute")
 
 
 const app = express()
+app.use(limiter)
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -23,8 +24,7 @@ const limiter = rateLimit({
 // Midleweres
 app.use("/api/blog", blogRouter)
 app.use("/api/announcement", announcementRoute)
-app.use("/api/blog-images", express.static("blogImages"))
-app.use(limiter)
+app.use("/api/blog-images", express.static("./blogImages"))
 
 const startApp = async () => {
     const port = process.env.PORT
