@@ -10,8 +10,7 @@ class BlogController {
             const images = req.files.map(file => file.filename); // Fayl nomlarini olish 
 
             if(!text){
-                // 2️⃣ Rasmlarni `blogImages` papkasidan o‘chirish
-                req.files.forEach(filename => {
+                images.forEach(filename => {
                     const filePath = path.join(__dirname, "../blogImages", filename);
                     if (fs.existsSync(filePath)) {
                         fs.unlinkSync(filePath); // Faylni o‘chirish
@@ -20,10 +19,10 @@ class BlogController {
                 return res.status(400).json({ok: false, message: `Siz barcha ma'lumotlarni kiritmadingiz!`})
             }
 
+
             if(!video && images.length === 0){
-                // 2️⃣ Rasmlarni `blogImages` papkasidan o‘chirish
-                req.files.forEach(filename => {
-                    const filePath = path.join(__dirname, "../blogImages", filename);
+                images.forEach(filename => {
+                    const filePath = path.join(__dirname, "../blogImages", filename.filename);
                     if (fs.existsSync(filePath)) {
                         fs.unlinkSync(filePath); // Faylni o‘chirish
                     }
@@ -42,21 +41,18 @@ class BlogController {
             }
 
             if(!blog){
-                // 2️⃣ Rasmlarni `blogImages` papkasidan o‘chirish
-                req.files.forEach(filename => {
-                    const filePath = path.join(__dirname, "../blogImages", filename);
+                images.forEach(filename => {
+                    const filePath = path.join(__dirname, "../blogImages", filename.filename);
                     if (fs.existsSync(filePath)) {
                         fs.unlinkSync(filePath); // Faylni o‘chirish
                     }
                 });
                 return res.status(400).json({ok: false, message: "Xatolik bo'ldi, Blog saqlanmadi!"})
             }
-
             res.json({ok: true, message: "Blog qo'shildi!"})
         } catch (error) {
-            // 2️⃣ Rasmlarni `blogImages` papkasidan o‘chirish
             req.files.forEach(filename => {
-                const filePath = path.join(__dirname, "../blogImages", filename);
+                const filePath = path.join(__dirname, "../blogImages", filename.filename);
                 if (fs.existsSync(filePath)) {
                     fs.unlinkSync(filePath); // Faylni o‘chirish
                 }

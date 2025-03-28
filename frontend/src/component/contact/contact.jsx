@@ -29,7 +29,7 @@ ${data.text}
     }
   }
   return (
-    <section className={`w-full px-12 justify-around flex py-7`}>
+    <section className={`w-full md:px-12 justify-around max-md:flex-col max-md:gap-4 flex py-7`}>
         <form className="md:w-1/2 my-4 p-5 rounded-sm w-full bg-white mx-auto items-center flex flex-col gap-4" onSubmit={submitHandler}>
           <h2 className="md:text-2xl text-xl Itim text-center">Savolingiz yoki taklifingiz bormi? Xabaringizni bizning Telegram botga yuboring!</h2>
           <input onChange={onChangeHandler} value={data.userTitle} name="userTitle" type="text" className="py-2 px-4 w-full outline-none border rounded-sm" placeholder="Ismingizni kiriting!"/>

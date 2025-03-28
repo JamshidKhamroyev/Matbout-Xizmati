@@ -1,16 +1,45 @@
 import SideBar from "../sideBar/sideBar"
-import d from '../../assets/home1.jpg'
+import moment from "moment"
+import { useEffect, useState } from "react"
+import { toast } from "react-toastify"
+import {showLoader, hideLoader} from '../../reducers/loader'
+import { Myaxios } from '../../apikeys/index'
+import { useDispatch } from "react-redux"
 
 const Announcement = () => {
+  const [blogs, setBlogs] = useState([])
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const getInfo = async () => {
+      dispatch(showLoader())
+      try {
+          const response = await Myaxios.get(`/api/announcement/get-all`)
+          if(response.data.ok){
+            dispatch(setBlogs(response.data.data.reverse()))
+          }else{
+            toast.error(response.data.message)
+          }
+      } catch (error) {
+        console.log(error.message); 
+      }
+      dispatch(hideLoader())
+    }
+    getInfo()
+  },[])
   return (
     <section className="py-8 w-full flex justify-around px-16">
         <div className="flex flex-col gap-2 p-4 w-1/2 bg-white">
-            <div className="my-8 flex flex-col gap-2">
+          {blogs?.map(item => (
+            <div className="my-8 flex flex-col gap-2" key={item._id}>
                 <div className="w-full h-[60vh] overflow-hidden">
-                    <img src={d} alt={d} className="w-full h-full"/>
+                    <img src={`https://matbout-xizmati.onrender.com/api/announceImages-images/${item?.image}`} alt={"fsdafs"} className="w-full h-full"/>
                 </div>
-                <p className="text-justify opacity-90">Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, modi! Molestias vitae omnis quisquam officia? Doloribus laudantium ratione voluptas temporibus, deleniti perferendis aliquid amet esse natus tenetur consequuntur veniam distinctio debitis nihil delectus modi totam aperiam ipsam! Molestiae, odit ad. ipsum dolor sit amet consectetur adipisicing elit. Quos magnam corporis inventore, voluptates recusandae explicabo, possimus beatae eligendi porro eum, dolores minus distinctio! Suscipit ab dolorum illo, esse quod nesciunt quibusdam dignissimos corrupti recusandae quidem tempore fugit facere quos similique.</p>
+                <h2 className="text-3xl Itim">{item?.title}</h2>
+                <p className="text-justify opacity-90">{item.text}</p>
+                <p>{moment(item?.createdAt).format("DD-MMMM")}</p>
             </div>
+          ))}
         </div>
         
         <SideBar />

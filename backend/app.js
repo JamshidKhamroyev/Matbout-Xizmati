@@ -25,6 +25,7 @@ app.use(express.urlencoded({extended: true}))
 app.use("/api/blog", blogRouter)
 app.use("/api/announcement", announcementRoute)
 app.use("/api/blog-images", express.static("./blogImages"))
+app.use("/api/announceImages-images", express.static("./announceImages"))
 
 const startApp = async () => {
     const port = process.env.PORT

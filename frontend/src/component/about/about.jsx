@@ -2,8 +2,8 @@ import SideBar from "../sideBar/sideBar"
 
 const About = () => {
   return (
-    <section className={`py-12 md:px-5 flex justify-around items-start`}>
-        <div className="w-2/4 flex flex-col shadow-md gap-2 p-4 bg-white">
+    <section className={`py-12 md:px-5 flex justify-around items-start max-md:flex-col max-md:gap-4 max-md:px-2`}>
+        <div className="md:w-2/4 w-full flex flex-col shadow-md gap-2 p-4 bg-white">
             <div className='w-full bg-[#13aff0]/50 px-4 py-3 rounded-sm'>
             <h2 className='text-[17px] font-semibold uppercase'>Uzun Tuman axborot-Kutubxona markazi</h2>
             </div>
