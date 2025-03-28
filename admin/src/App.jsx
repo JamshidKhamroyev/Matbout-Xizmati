@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <div className='w-full flex items-start gap-3'>
         <Load />
-        {/* <Login /> */}
+        <Login />
         <SideBar />
         <Routes>
           <Route path='/blogs' element={<Blogs />}/>
