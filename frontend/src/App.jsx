@@ -9,7 +9,6 @@ import NotPage from './component/notPage/notPage'
 import Load from './component/loader/load'
 import Location from './component/location/location'
 import Owner from './component/owner/owner'
-import Announcement from './component/announcement/announcement'
 import { useSelector } from 'react-redux'
 
 const App = () => {
@@ -23,7 +22,6 @@ const App = () => {
               <Route path='/' element={<HomePage />}/>
               <Route path='/about' element={<About />}/>
               <Route path='/blogs' element={<Blogs />}/>
-              <Route path='/announcement' element={<Announcement />}/>
               <Route path='/location' element={<Location />}/>
               <Route path='/owner' element={<Owner />}/>
               <Route path='/contact' element={<Contact />}/>

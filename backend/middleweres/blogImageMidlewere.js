@@ -1,6 +1,7 @@
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs")
+const cloudinary = require("cloudinary").v2
 
 // Rasm saqlash uchun multer sozlamalari
 const storage = multer.diskStorage({
