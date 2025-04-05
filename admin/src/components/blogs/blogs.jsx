@@ -7,6 +7,7 @@ import {showLoader, hideLoader} from '../../reducers/loader';
 
 const Blogs = () => {
   const [items, setItems] = useState([])
+  const link = "https://matbout-xizmati.onrender.com"
   const dispatch = useDispatch()
 
   const getAll = async() => {
@@ -45,14 +46,14 @@ const Blogs = () => {
             <div className={`w-full ${item.image.length === 3 ? "grid grid-cols-2 gap-2" : "flex gap-2"}`}>
               {item.image.map((img, index) => {
                 if (item.image.length === 1) {
-                  return <img key={index} src={`https://matbout-xizmati.onrender.com/api/blog-images/${img}`} alt="fs" className="w-full h-[400px]" />;
+                  return <img key={index} src={`${link}/api/blog-images/${img}`} alt="fs" className="w-full h-[400px]" />;
                 } 
                 if (item.image.length === 2) {
-                  return <img key={index} src={`https://matbout-xizmati.onrender.com/api/blog-images/${img}`} alt="fs" className="w-1/2 h-[400px]" />;
+                  return <img key={index} src={`${link}/api/blog-images/${img}`} alt="fs" className="w-1/2 h-[400px]" />;
                 }
                 if (item.image.length === 3) {
                   return (
-                    <img key={index} src={`https://matbout-xizmati.onrender.com/api/blog-images/${img}`} 
+                    <img key={index} src={`${link}/api/blog-images/${img}`} 
                       alt="fs" 
                       className={`${index === 2 ? "col-span-2 w-full h-[300px]" : "w-full h-[300px]"}`} 
                     />

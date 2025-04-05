@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  link: "https://matbout-xizmati.onrender.com",
   load: false,
 }
 
