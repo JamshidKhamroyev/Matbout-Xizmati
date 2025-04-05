@@ -9,7 +9,7 @@ const About = () => {
             </div>
 
             <div className='w-full bg-[#13aff0]/50 px-4 py-3 rounded-sm'>
-            <h2 className='text-[17px] font-semibold'>ДЕНОВ ТУМАН АХБОРОТ-КУТУБХОНА МАРКАЗИ ЎЗБЕКИСТОН РЕСПУБЛИКАСИ ПРЕЗИДЕНТИНИНГ 2019 ЙИЛ 7 ИЮНДАГИ “ЎЗБЕКИСТОН РЕСПУБЛИКАСИ  АҲОЛИСИГА АХБОРОТ-КУТУБХОНА ХИЗМАТИ КЎРСАТИШНИ ЯНАДА ТАКОМИЛЛАШТИРИШ ТЎҒРИСИДА” ГИ ПҚ 4354-СОНЛИ ҚАРОРИ АСОСИДА 2019 ЙИЛ НОЯБР ОЙИДАН ЎЗ ИШ ФАОЛИЯТИ БОШЛАДИ.</h2>
+            <h2 className='text-[17px] font-semibold'>Uzun Tumani Axborot Markazi O'zbekiston Resbuplikasi Prezidentining 2019 yil 7 iyundagi “O'zbekiston Respublikasi Aholisiga Axborot-Kutubxona Xizmati Ko'rsatishni Yanada Takomillashtirish to'g'risida GI PK 4354-sonli qarori asosida 2019 yil noyabr oyidan o'z ish faoliyatini boshladi.</h2>
             </div>
 
             <div className='w-full bg-[#13aff0]/50 px-4 py-3 rounded-sm'>

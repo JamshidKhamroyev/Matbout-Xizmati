@@ -7,7 +7,7 @@ import {showLoader, hideLoader} from '../../reducers/loader';
 
 const Blogs = () => {
   const [items, setItems] = useState([])
-  const link = "https://matbout-xizmati.onrender.com"
+  const link = "https://api.uzuntakm.uz"
   const dispatch = useDispatch()
 
   const getAll = async() => {

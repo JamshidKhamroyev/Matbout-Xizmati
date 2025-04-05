@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const myaxios = axios.create({
-    baseURL: "https://matbout-xizmati.onrender.com",
+    baseURL: "http://api.uzuntakm.uz",
     headers: {
         "Authorization": `Bearer ${import.meta.env.VITE_TOKEN}`,
     }

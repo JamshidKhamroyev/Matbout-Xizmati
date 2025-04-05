@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
 
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if(err){
-                return res.status(403).json({ok: false, message: 'Noto‘g‘ri yoki muddati o‘tgan token' });
+                return res.status(403).json({ok: false, message: 'Noto‘g‘ri yoki muddati o‘tgan token', err: err });
             }
 
             const decode = decoded.id.split("`")[1]
