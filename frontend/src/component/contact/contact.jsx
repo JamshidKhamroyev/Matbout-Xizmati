@@ -14,8 +14,8 @@ const Contact = () => {
   const submitHandler = async event => {
     event.preventDefault()
     try {
-      await axios.post(`https://api.telegram.org/bot${`admin`}/sendMessage`, {
-      chat_id: 2312312,
+      await axios.post(`https://api.telegram.org/bot${`7777655844:AAHD5j1PCp9cpjhzk9TDrrxzbsMBF1hMQcU`}/sendMessage`, {
+      chat_id: 6581009051,
       text: `
 Foydalanuvchi ismi: ${data.userTitle}
 Foydalanuvchining xabari: 
