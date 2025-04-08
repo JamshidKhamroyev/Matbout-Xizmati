@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 
 const Navbar = () => {
     const header = useRef(null)
-    const [active, sertActive] = useState("Asosiy || qism")
+    const [active, sertActive] = useState("Uzun Tumani Matbuot Xizmati")
     const [open, setOpen] = useState(false)
     const [scroll, setScroll] = useState(false)
     const navigate = useNavigate()
@@ -13,6 +13,9 @@ const Navbar = () => {
         {title: "Tadbirlar", route: "blogs"},
         {title: "Rahbariyat", route: "owner"},
         {title: "Kutubxona bilan tanishish", route: "about"},
+        {title: "axborot bibliografiya faoliyati", route: "activity"},
+        {title: "O'lkashunoslik", route: "local"},
+        {title: "Mahaliy ro'znomalar", route: "gazeta"},
         {title: "Kutubxona manzili", route: "location"},
         {title: "Bog'lanish", route: "contact"},
     ]
@@ -42,7 +45,7 @@ const Navbar = () => {
     }
   return (
     <header className={`w-full relative pt-3 md:h-[60vh] flex flex-col justify-between items-start top-0 left-0 shadow-2xl`}>
-            <div className="h-[60%] absolute top-0 left-0 w-full bg-black/80 md:-z-[1] max-md:z-10"></div>
+            <div className="h-[60%] absolute top-0 left-0 w-full bg-black/90 md:-z-[1] max-md:z-10"></div>
             <img src="https://www.insanefreedom.com/wp-content/uploads/2020/08/nathan-da-silva-k-rKfqSm4L4-unsplash-scaled.jpg" alt="sdas" className="absolute top-0 left-0 -z-[2] w-full h-full"/>
             <Link to={"/"} onClick={() => sertActive("Asosiy || qism")} className="flex max-md:z-[11] max-md:text-center px-4 justify-center items-center md:gap-2 gap-1 cursor-pointer">
                 <img src={Logo} alt={"dafelur"} className="w-[50px] max-md:hidden rounded-full" />
@@ -57,9 +60,9 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <ul ref={header} className={`flex ${open ? "top-0 z-[2312312]" : "-top-[600px]"} justify-end fixed ${scroll ? "md:top-0 md:bg-white md:text-black md:shadow-md" : "md:text-white md:top-[10vh]"} right-0 px-10 w-full py-2 md:z-[124] max-md:absolute max-md:flex-col max-md:py-4 duration-300 max-md:justify-center max-md:items-center max-md:w-full max-md:bg-white max-md:text-black gap-2`}>
+            <ul ref={header} className={`flex max-md:shadow-md ${open ? "top-0 z-[2312312]" : "-top-[600px]"} justify-end fixed ${scroll ? "md:top-0 md:bg-white md:text-black md:shadow-md" : "md:text-white md:top-[10vh]"} right-0 px-3 w-full py-2 md:z-[124] max-md:absolute max-md:flex-col max-md:py-4 duration-300 max-md:justify-center max-md:items-center max-md:w-full max-md:bg-white max-md:text-black gap-1`}>
                 {links.map(item => (
-                    <NavLink onClick={() => sertActive(item.title)} key={item.route} to={`/${item.route}`} className={`md:text-xl linksNav font-semibold py-2 max-md:hover:text-white ${scroll ? "hover:text-white md:py-4" : "md:py-8"} px-6 ${active === item.title ? "bg-[#13aff0] text-white" : ""} relative group duration-300`}>{item.title} <p className="absolute top-0 left-0 w-full -z-10 group-hover:bg-[#13aff0] h-0.5 group-hover:h-full duration-300"></p></NavLink>
+                    <NavLink onClick={() => sertActive(item.title)} key={item.route} to={`/${item.route}`} className={`capitalize md:text-[18px] linksNav font-semibold py-2 max-md:hover:text-white ${scroll ? "hover:text-white md:py-4" : "md:py-8"} px-4 ${active === item.title ? "bg-[#13aff0] text-white" : ""} relative group duration-300`}>{item.title} <p className="absolute top-0 left-0 w-full -z-10 group-hover:bg-[#13aff0] h-0.5 group-hover:h-full duration-300"></p></NavLink>
                 ))}
                 {open && (
                     <i className="fa-solid fa-xmark md:hidden text-3xl cursor-pointer z-[18] text-black absolute top-2 right-2" onClick={() => setOpen(prev => !prev)}></i>
@@ -68,7 +71,7 @@ const Navbar = () => {
         
 
             {/* Info the page */}
-            <div className="pb-20 pt-3 w-full bg-black/40 z-[12] text-white text-center">
+            <div className="pb-20 pt-3 w-full bg-black/60 z-[12] text-white text-center">
                 <h2 className="md:text-5xl text-2xl max-md:pb-4 Itim font-semibold mb-2">{active === "Asosiy || qism" ? `Mahmudxo‘ja Behbudiy tavalludining ${getYear()} yilligini` : active}</h2>
                 <p className="text-xl cursor-pointer"><i className="fa-solid fa-house" onClick={() => navigate(`/${active}`)}></i> Home <i className="fa-solid fa-arrow-right px-2" onClick={() => navigate(`/${active}`)}></i> {active !== "Asosiy || qism" ? active : ""}</p>
             </div>        

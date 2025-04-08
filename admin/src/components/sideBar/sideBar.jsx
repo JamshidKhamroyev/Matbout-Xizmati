@@ -3,7 +3,9 @@ import {NavLink} from 'react-router-dom'
 
 const links = [
   { to: '/blogs', label: 'Bloglar', icon: 'fa-newspaper' },
+  { to: '/pdfs', label: "PDF lar ro'yxati", icon: 'fa-newspaper' },
   { to: '/add-blog', label: 'Blog Yaratish', icon: 'fa-pen' },
+  { to: '/add-pdf', label: 'PDF Yaratish', icon: 'fa-pen' },
 ];
 
 const SideBar = () => {

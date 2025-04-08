@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   loader: false,
+  link: "http://localhost:2008"
 }
 
 export const counterSlice = createSlice({

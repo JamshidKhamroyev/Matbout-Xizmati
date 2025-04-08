@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const myaxios = axios.create({
-    baseURL: "http://api.uzuntakm.uz",
+    baseURL: "http://localhost:2008",
     headers: {
         "Authorization": `Bearer ${import.meta.env.VITE_TOKEN}`,
     }

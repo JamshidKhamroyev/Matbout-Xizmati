@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  link: "http://api.uzuntakm.uz",
+  link: "http://localhost:2008",
   load: false,
 }
 
