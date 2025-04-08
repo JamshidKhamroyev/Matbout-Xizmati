@@ -7,7 +7,7 @@ const Blog = ({ items = [], deleteHandler, link }) => {
         items.map((item, i) => (
           <div key={item?._id || i} className="border p-2 w-full my-4 rounded-lg shadow-sm">
             <div className="w-full">
-              {Array.isArray(item?.image) && item.image.length > 0 ? (
+              {Array.isArray(item?.image) && item?.image?.length > 0 ? (
                 <div
                   className={`w-full gap-2 ${
                     item.image.length === 1
@@ -19,7 +19,7 @@ const Blog = ({ items = [], deleteHandler, link }) => {
                       : "flex flex-col"
                   }`}
                 >
-                  {item.image.map((img, index) => {
+                  {item?.image?.map((img, index) => {
                     const src = `${link}/api/blog-images/${img}`;
                     return (
                       <img
@@ -36,9 +36,7 @@ const Blog = ({ items = [], deleteHandler, link }) => {
                 <div className="w-full aspect-video my-2">
                   <iframe
                     className="w-full h-full rounded-md"
-                    src={`https://www.youtube-nocookie.com/embed/${extractVideoId(
-                      item.video
-                    )}?modestbranding=1&rel=0&controls=1`}
+                    src={item?.video}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
